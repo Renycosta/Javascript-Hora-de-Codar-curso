@@ -234,14 +234,55 @@ console.log(palavra.repeat(5))
 // 23 - rest operator
 const somaInfinita = (...args) => {
     let total = 0
-
     for(let i = 0; i < args.length; i++){
         total += args[i]
+    }
+    return total
+}
+console.log(somaInfinita(1, 2, 3))
+
+console.log(somaInfinita(1, 42, 534, 53423))
+
+// 24 - for of
+const somaInfinita2 = (...args) => {
+    let total = 0
+
+    for(num of args){
+        total += num
     }
 
     return total
 }
 
-console.log(somaInfinita(1, 2, 3))
+console.log(somaInfinita2(1, 2, 4))
+console.log(somaInfinita2(5, 6, 1, 42, 65, 32))
 
-console.log(somaInfinita(1, 42, 534, 53423))
+// 25 - destructuring em objetos
+const userDetails = {
+    firstName: "Reny",
+    lastName: "Costa",
+    job: "Programador"
+}
+
+const { firstName, lastName, job } = userDetails
+console.log(firstName, lastName, job)
+
+const {firstName: PrimeiroNome} = userDetails
+console.log(PrimeiroNome)
+
+// 26 - destruction em arrays
+const myList = ["Avião", "Submarino", "Carro"]
+
+const [veiculoA, veiculoB, veiculoC] = myList
+
+console.log(veiculoA, veiculoB, veiculoC)
+
+// 27 - JSON
+const myJson = '{"name": "Reny", "age": 19, "skills": ["PHP", "JavaScript", "Python"]}'
+
+// 28 - JSON para objeto e objeto para JSON
+const myObject = JSON.parse(myJson)
+console.log(myObject)
+
+const myNewJson = JSON.stringify(myObject)
+console.log(myNewJson)
